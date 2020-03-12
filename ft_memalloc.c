@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmalloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 15:06:28 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/11 17:01:16 by kdonthi          ###   ########.fr       */
+/*   Created: 2020/02/29 16:40:47 by kdonthi           #+#    #+#             */
+/*   Updated: 2020/03/11 16:37:07 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
 
-void	ft_memset(void *s, int c, size_t n)
+void	*ft_memalloc(size_t size)
 {
-	unsigned char	*x;
-	size_t			i;
+	size_t	i;
+	char	*string;
 
-	x = s;
 	i = 0;
-	while (i < n)
-	{
-		*x = (unsigned char)c;
-		x++;
-		i++;
-	}
+	string = (char*)malloc(sizeof(char) * size);
+	if (!string)
+		return (NULL);
+	while (i < size)
+		string[i++] = 0;
+	return (string);
 }

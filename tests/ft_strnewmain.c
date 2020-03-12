@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   main3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 15:06:28 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/11 17:01:16 by kdonthi          ###   ########.fr       */
+/*   Created: 2020/02/29 16:43:33 by kdonthi           #+#    #+#             */
+/*   Updated: 2020/02/29 17:35:45 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	ft_memset(void *s, int c, size_t n)
+#include "libft.h"
+#include <stdio.h>
+int main()
 {
-	unsigned char	*x;
-	size_t			i;
+	int x = -3;
+	int i = 0;
 
-	x = s;
-	i = 0;
-	while (i < n)
+	char *string = ft_strnew(x);
+	if (!string)
 	{
-		*x = (unsigned char)c;
-		x++;
+		printf("ERROR");
+		return(1);
+	}
+	while (i < x)
+	{
+		printf("%i: %c\n", i, string[i]);
 		i++;
 	}
 }

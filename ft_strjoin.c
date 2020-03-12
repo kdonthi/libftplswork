@@ -6,13 +6,13 @@
 /*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:57:54 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/02 17:14:55 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/11 16:39:42 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-long	ft_strlen(char const *string)
+static long	ft_strlen(char const *string)
 {
 	long	len;
 
@@ -22,7 +22,7 @@ long	ft_strlen(char const *string)
 	return (len);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
 	long	i;
 	long	j;

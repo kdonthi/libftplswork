@@ -6,14 +6,14 @@
 /*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 17:50:13 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/06 19:27:23 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/11 16:36:15 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-void		appendnode(t_string **ptonode, t_string **ptotemp, long wc, long wl)
+static void		apn(t_string **ptonode, t_string **ptotemp, long wc, long wl)
 {
 	*ptonode = malloc(sizeof(t_string));
 	(*ptonode)->wordnum = wc;
@@ -22,11 +22,11 @@ void		appendnode(t_string **ptonode, t_string **ptotemp, long wc, long wl)
 	*ptotemp = *ptonode;
 }
 
-t_string	*create_list(char const *s, char c)
+static t_string	*create_list(char const *s, char c)
 {
 	t_word		a;
 
-	a.wordcounter = 0;
+	a.wc = 0;
 	a.index = 0;
 	while (1)
 	{
@@ -40,51 +40,48 @@ t_string	*create_list(char const *s, char c)
 		}
 		if (a.wordlen > 0)
 		{
-			a.wordcounter++;
-			if (a.wordcounter == 1)
-				appendnode(&(a.head), &(a.temp), a.wordcounter, a.wordlen);
+			a.wc++;
+			if (a.wc == 1)
+				apn(&(a.head), &(a.temp), a.wc, a.wordlen);
 			else
-				appendnode(&((a.temp)->next), &(a.temp), a.wordcounter, a.wordlen);
+				apn(&((a.temp)->next), &(a.temp), a.wc, a.wordlen);
 		}
 		else
 			return (a.head);
 	}
 }
 
-char		**ft_strsplit(char const *s, char c)
+static void		setwordandindex(int *a, long *b)
 {
-	t_string	*list;
-	t_string	*temp;
-	long		index;
-	char		**arrayofstrings;
-	int			word;
-	int			j;
-	int			wordnum;
-
-	list = create_list(s, c);
-	temp = list;
-	word = 0;
-	index = 0;
-	while (temp->next != NULL)
-		temp = temp->next;
-	wordnum = temp->wordnum;
-	arrayofstrings = malloc(sizeof(char*) * (wordnum + 1));
-	while (s[index] == c)
-		index++;
-	temp = list;
-	while (word < wordnum)
-	{
-		j = 0;
-		arrayofstrings[word] = malloc(sizeof(char) * ((temp->wordlen) + 1));
-		while (j < temp->wordlen)
-			arrayofstrings[word][j++] = s[index++];
-		arrayofstrings[word][j] = '\0';
-		temp = temp->next;
-		while (s[index] == c)
-			index++;
-		word++;
-	}
-	arrayofstrings[word] = (char*)'\0';
-	return (arrayofstrings);
+	*a = 0;
+	*b = 0;
 }
 
+char			**ft_strsplit(char const *s, char c)
+{
+	t_listi		k;
+
+	k.list = create_list(s, c);
+	k.temp = k.list;
+	setwordandindex(&(k.word), &(k.index));
+	while ((k.temp)->next != NULL)
+		k.temp = (k.temp)->next;
+	k.wordnumb = (k.temp)->wordnum;
+	k.aos = malloc(sizeof(char*) * ((k.wordnumb) + 1));
+	while (s[k.index] == c)
+		k.index++;
+	k.temp = k.list;
+	while (k.temp != NULL)
+	{
+		k.j = 0;
+		k.aos[k.word] = malloc(sizeof(char) * (((k.temp)->wordlen) + 1));
+		while (k.j < (k.temp)->wordlen)
+			k.aos[k.word][(k.j)++] = s[(k.index)++];
+		k.aos[k.word++][k.j] = '\0';
+		k.temp = (k.temp)->next;
+		while (s[k.index] == c)
+			(k.index)++;
+	}
+	k.aos[k.word] = (char*)'\0';
+	return (k.aos);
+}

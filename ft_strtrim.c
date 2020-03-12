@@ -6,14 +6,14 @@
 /*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 17:56:08 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/04 14:12:19 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/11 16:39:25 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 
-long	strip_len(const char *string)
+static long	strip_len(const char *string)
 {
 	long len;
 	long j;
@@ -38,7 +38,7 @@ long	strip_len(const char *string)
 	return (-1);
 }
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
 	long	j;
 	long	i;

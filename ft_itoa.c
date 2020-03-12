@@ -6,14 +6,14 @@
 /*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 16:59:20 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/04 17:46:26 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/11 16:39:06 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-void	putinarray(long n, int *ind, char *array)
+static void	putinarray(long n, int *ind, char *array)
 {
 	if (n < 0)
 	{
@@ -25,7 +25,7 @@ void	putinarray(long n, int *ind, char *array)
 	array[(*ind)++] = (n % 10) + '0';
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char		*intarray;
 	t_numprop	a;

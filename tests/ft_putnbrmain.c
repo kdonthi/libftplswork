@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbrmain.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 15:06:28 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/11 17:01:16 by kdonthi          ###   ########.fr       */
+/*   Created: 2020/03/05 13:43:39 by kdonthi           #+#    #+#             */
+/*   Updated: 2020/03/05 13:55:32 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
+#include <limits.h>
 
-void	ft_memset(void *s, int c, size_t n)
+int main()
 {
-	unsigned char	*x;
-	size_t			i;
-
-	x = s;
-	i = 0;
-	while (i < n)
-	{
-		*x = (unsigned char)c;
-		x++;
-		i++;
-	}
+	ft_putnbr(INT_MAX);
+	ft_putchar('\n');
+	ft_putnbr(INT_MIN);
+	ft_putchar('\n');
+	ft_putnbr(0);
+	ft_putchar('\n');
+	ft_putnbr(-342);
+	ft_putchar('\n');
+	ft_putnbr(42);
+	ft_putchar('\n');
 }

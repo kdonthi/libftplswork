@@ -6,7 +6,7 @@
 /*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 18:45:26 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/09 16:29:13 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/11 16:25:39 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,22 @@ typedef struct		s_string
 }					t_string;
 typedef struct		s_word
 {
-	long			wordcounter;
+	long			wc;
 	long			wordlen;
 	long			index;
 	t_string		*head;
 	t_string		*temp;
 }					t_word;
-
+typedef struct		s_listi
+{
+	t_string		*list;
+	t_string		*temp;
+	long			index;
+	char			**aos;
+	int				word;
+	int				j;
+	int				wordnumb;
+}					t_listi;
 char				*ft_strncpy(char *dst, const char *src, size_t num);
 size_t				ft_strlen(const char *str);
 char				*ft_strdup(const char *s1);
@@ -70,7 +79,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-void				*ft_memmalloc(size_t size);
+void				*ft_memalloc(size_t size);
 char				*ft_strnew(size_t size);
 void				ft_memdel(void **ap);
 void				ft_strdel(char **ap);

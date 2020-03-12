@@ -6,14 +6,14 @@
 /*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 19:31:22 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/02 15:15:48 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/11 16:39:57 by kdonthi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 
-long	ft_strlen(const char *string)
+static long	ft_strlen(const char *string)
 {
 	long len;
 
@@ -28,7 +28,7 @@ long	ft_strlen(const char *string)
 		return (-1);
 }
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	long i;
 	char *string;
