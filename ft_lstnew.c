@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ravikumardonthi <ravikumardonthi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 16:08:19 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/06 16:15:56 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/20 18:37:41 by ravikumardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	t_list	*newnode;
 
 	newnode = malloc(sizeof(t_list));
+	if (!newnode)
+		return (NULL);
 	if (content != NULL)
 	{
 		newnode->content = (void*)content;

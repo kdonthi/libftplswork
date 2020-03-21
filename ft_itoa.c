@@ -6,7 +6,7 @@
 /*   By: ravikumardonthi <ravikumardonthi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 16:59:20 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/18 17:48:51 by ravikumardo      ###   ########.fr       */
+/*   Updated: 2020/03/20 17:51:00 by ravikumardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char		*ft_itoa(int n)
 		a.digits++;
 	}
 	intarray = malloc(sizeof(char) * (a.digits + a.neg + 1));
+	if (!intarray)
+		return (NULL);
 	index = 0;
 	ptoi = &(index);
 	putinarray(n, ptoi, intarray);
