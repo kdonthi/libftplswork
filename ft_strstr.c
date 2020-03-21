@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 char	*ft_strstr(const char *hs, const char *ndl)
 {
@@ -20,6 +21,8 @@ char	*ft_strstr(const char *hs, const char *ndl)
 
 	s1ind = 0;
 	s2ind = 0;
+	if (ft_strcmp(ndl,"") == 0)
+		return ((char*)hs);
 	while (hs[s1ind] != '\0')
 	{
 		i = 0;

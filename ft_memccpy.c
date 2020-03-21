@@ -11,16 +11,18 @@
 /* ************************************************************************** */
 
 #include <string.h>
-
+#include <stdio.h>
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	char	*dest1;
-	char	*src1;
+	unsigned char	*dest1;
+	unsigned char	*src1;
 	size_t	i;
 
-	dest1 = (char*)dest;
-	src1 = (char*)src;
+	dest1 = (unsigned char*)dest;
+	src1 = (unsigned char*)src;
 	i = 0;
+	if (n == 0)
+		return (NULL);
 	while (i < n && src1[i] != (unsigned char)c)
 	{
 		dest1[i] = src1[i];
@@ -29,7 +31,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	if (i <= (n - 1))
 	{
 		dest1[i] = src1[i];
-		return (dest);
+		return (dest + ++i);
 	}
 	else
 	{

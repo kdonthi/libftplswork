@@ -51,19 +51,29 @@ static t_string	*create_list(char const *s, char c)
 	}
 }
 
-static void		setwordandindex(int *a, long *b)
+static void		setwordandindex(t_listi *k)
 {
-	*a = 0;
-	*b = 0;
+	(*k).word = 0;
+	(*k).index = 0;
+	(*k).temp = (*k).list;
+}
+
+char** arrayofvoid()
+{
+	char** array;
+
+	array = NULL;
+	return (array);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
 	t_listi		k;
 
+	if (!s)
+		return (arrayofvoid());
 	k.list = create_list(s, c);
-	k.temp = k.list;
-	setwordandindex(&(k.word), &(k.index));
+	setwordandindex(&k);
 	while ((k.temp)->next != NULL)
 		k.temp = (k.temp)->next;
 	k.wordnumb = (k.temp)->wordnum;

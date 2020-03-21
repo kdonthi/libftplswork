@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove2.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ravikumardonthi <ravikumardonthi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 14:47:35 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/02/21 15:41:12 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/18 19:00:36 by ravikumardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	dest1 = (char*)dest;
 	src1 = (char*)src;
 	i = 0;
+	if (!src)
+		return (dest);
 	if (dest < src)
 	{
 		while (i < n)

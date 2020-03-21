@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ravikumardonthi <ravikumardonthi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 16:59:20 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/11 16:39:06 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/18 17:48:51 by ravikumardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,17 @@ char		*ft_itoa(int n)
 	a.neg = 0;
 	if (a.copy < 0)
 		a.neg = 1;
+	if (a.copy == 0)
+		a.digits = 1;
 	while (a.copy != 0)
 	{
 		a.copy /= 10;
 		a.digits++;
 	}
-	intarray = malloc(sizeof(char) * (a.digits + a.neg));
+	intarray = malloc(sizeof(char) * (a.digits + a.neg + 1));
 	index = 0;
 	ptoi = &(index);
 	putinarray(n, ptoi, intarray);
+	intarray[a.digits + a.neg] = '\0';
 	return (intarray);
 }
