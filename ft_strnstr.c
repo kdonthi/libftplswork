@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ravikumardonthi <ravikumardonthi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 16:12:12 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/05 14:43:56 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/21 13:33:21 by ravikumardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	*ft_strnstr(const char *h, const char *nd, size_t n)
 
 	s1 = 0;
 	is = n;
-	if (!nd)
-		return (NULL);
 	if (nd[0] == '\0')
 		return ((char*)h);
 	while (h[s1] != '\0' && s1 < is)
