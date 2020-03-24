@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdonthi <kdonthi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ravikumardonthi <ravikumardonthi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 17:50:13 by kdonthi           #+#    #+#             */
-/*   Updated: 2020/03/11 16:36:15 by kdonthi          ###   ########.fr       */
+/*   Updated: 2020/03/23 17:08:26 by ravikumardo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static t_string	*create_list(char const *s, char c)
 
 	a.wc = 0;
 	a.index = 0;
+	a.head = NULL;
 	while (1)
 	{
 		while (s[a.index] == c)
@@ -58,11 +59,9 @@ static void		setwordandindex(t_listi *k)
 	(*k).temp = (*k).list;
 }
 
-char** arrayofvoid()
+char** arrayofvoid(char **array)
 {
-	char** array;
-
-	array = NULL;
+	array[0] = NULL;
 	return (array);
 }
 
@@ -71,9 +70,11 @@ char			**ft_strsplit(char const *s, char c)
 	t_listi		k;
 
 	if (!s)
-		return (arrayofvoid());
+		return (NULL);
 	k.list = create_list(s, c);
 	setwordandindex(&k);
+	if (k.temp == NULL)
+		return (arrayofvoid((char**)malloc(sizeof(char*) * 1)));
 	while ((k.temp)->next != NULL)
 		k.temp = (k.temp)->next;
 	k.wordnumb = (k.temp)->wordnum;

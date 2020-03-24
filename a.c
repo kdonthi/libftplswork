@@ -6,9 +6,11 @@
 int main()
 {
 	//ft_putchar(L'ø');
-	char *string = "-99999999999999999999999999";
-	printf("%i\n", ft_atoi(string));
-	printf("%i\n", atoi(string));
+	char *string = "yo hwats up dog";
+	char **arrayofstring = ft_strsplit("*****", '*');
+	printf("%s", arrayofstring[0]);
+	//printf("%i\n", ft_atoi(string));
+	//printf("%i\n", atoi(string));
 	/*char *src = "llo";
 	//strcpy(src,"hello");
 	char *dest = "Yello";
